@@ -7,7 +7,7 @@ import os
 
 myurl = "https://en.wikipedia.org/wiki/COVID-19_pandemic_in_Europe"
 
-def create_dataset(url):
+def create_dataframe(url):
     req = requests.get(url)
     data_list = pd.read_html(req.text)
     df = data_list[3]
@@ -23,7 +23,7 @@ def create_dataset(url):
 
     return df
 
-def save_dataset(file_loc, dataframe):
+def save_dataframe(file_loc, dataframe):
     dataframe.to_csv(file_loc)
 
 def create_map(geo_data, data, columns, legend_name):
@@ -61,9 +61,9 @@ def screenshot_map(mapfile, f_dest):
     browser.quit()
 
 
-df = create_dataset(myurl)
+df = create_dataframe(myurl)
 fl = 'datasets/datas.csv'
-save_dataset(fl, df)
+save_dataframe(fl, df)
 
 states = os.path.join('geojson', 'countries.geo.json')
 country_covid = os.path.join('geojson', 'datas.csv')
