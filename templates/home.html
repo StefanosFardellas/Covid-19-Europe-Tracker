@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Covid-19 Statistics</title>
+{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Covid-19 Statistics</h1>
+        {% for image in images %}
+        <div class="map">
+            <img src="{{ image.img }}">
+            <span>{{ image.title }}</span>
+        </div>
+        {% endfor %}
+    </section>
+{% endblock %}
