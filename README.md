@@ -6,7 +6,7 @@ In ***covid_tracker.py*** file I collect all my datas from my
 dataset, which is Wikipedia's page, through **pandas**.
 Next, I save my dataframe into datasets/data.csv. 
 Then I use **folium** to create three maps and visualise 
-the datas using datasets/countries.geo.json file and 
+the datas using datasets/countries.geo.json file (**cases.html**, **deaths.html** and **recoveries.html**) and 
 I save them into maps directory as html files. Lastly, 
 I use **selenium** to open the html files through a browser 
 and take screenshots of them, which I save into 
