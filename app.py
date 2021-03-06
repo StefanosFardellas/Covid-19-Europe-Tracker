@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+import time as tm
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///img.db'
@@ -21,6 +22,11 @@ def update_photos(datas):
         photo = Img(img=fname, title=info)
         db.session.add(photo)
     db.session.commit()
+    print("Database updated on " + str(tm.localtime().tm_mday) + '/' +
+        str(tm.localtime().tm_mon) + '/' +
+        str(tm.localtime().tm_year) + ' ' +
+        str(tm.localtime().tm_hour) + ':' +
+        str(tm.localtime().tm_min))
 
 @app.route('/')
 def home_page():
